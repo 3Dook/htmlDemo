@@ -16,6 +16,12 @@ app.get('/test', (_req, res) => {
 app.get('/', (_req, res) => {
     res.sendFile(path.join(__dirname, 'home.html'));
 });
+
+// 404
+app.get('*', (req, res) =>{
+  res.status(404).send("<div> 404 NOT FOUND</div>");
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
